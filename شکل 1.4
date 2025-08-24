@@ -1,0 +1,23 @@
+install.packages("copula")
+library(copula)
+
+get_FGM_samples <- function(delta, n = 2000) {
+  fgm_cop <- fgmCopula(param = delta, dim = 2)
+  return(rCopula(n, fgm_cop))
+}
+# Plot for delta = -0.9
+delta1 <- -0.9
+uv1 <- get_FGM_samples(delta1, 2000)
+plot(uv1[, 1], uv1[, 2], main = "", xlab = "u", ylab = "v", col = 6, pch = 16)
+# Plot for delta = 0.1
+delta2 <- 0.1
+uv2 <- get_FGM_samples(delta2, 2000)
+plot(uv2[, 1], uv2[, 2], main = "", xlab = "u", ylab = "v", col = 6, pch = 16)
+# Plot for delta = 0.6
+delta3 <- 0.6
+uv3 <- get_FGM_samples(delta3, 2000)
+plot(uv3[, 1], uv3[, 2], main = "", xlab = "u", ylab = "v", col = 6, pch = 16)
+# Plot for delta = 0.9
+delta4 <- 0.9
+uv4 <- get_FGM_samples(delta4, 2000)
+plot(uv4[, 1], uv4[, 2], main = "", xlab = "u", ylab = "v", col = 6, pch = 16)
